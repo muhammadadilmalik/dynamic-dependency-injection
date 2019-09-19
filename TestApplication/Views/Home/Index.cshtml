@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div style="text-align: center">
+    @ViewData["message"].ToString()
+</div>
+
+<div style="text-align: center">
+    @ViewData["messageSingleton"].ToString()
+</div>
+
+<div style="text-align: center">
+    Scoped 1st Call: @ViewData["messageScoped"].ToString()
+</div>
+
+<div style="text-align: center">
+    Scoped 2st Call: @ViewData["messageScoped1"].ToString()
+</div>
+
+<div style="text-align: center">
+    Scoped 3rd Call: @ViewData["messageScoped2"].ToString()
+</div>
+
+<div style="text-align: center">
+    Scoped 4th Call: @ViewData["messageScoped3"].ToString()
+</div>
+
+<div style="text-align: center">
+    Scoped 5th Call: @ViewData["messageScoped4"].ToString()
+</div>
