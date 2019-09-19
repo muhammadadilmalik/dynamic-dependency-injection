@@ -38,21 +38,21 @@ namespace TestApplication
 			var type = typeof(ITransientDependency);
 			foreach (var classType in GetTypes(type))
 			{
-				var interfaceType = Type.GetType(GetInterfaceFullName(classType.FullName));
+				var interfaceType = GetInterfaceType(classType.FullName);
 				services.AddTransient(interfaceType, classType);
 			}
 
 			var singletype = typeof(ISingletonDependency);
 			foreach (var classType in GetTypes(singletype))
 			{
-				var interfaceType = Type.GetType(GetInterfaceFullName(classType.FullName));
+				var interfaceType = GetInterfaceType(classType.FullName);
 				services.AddSingleton(interfaceType, classType);
 			}
 
 			var scopetype = typeof(IScopedDependency);
 			foreach (var classType in GetTypes(scopetype))
 			{
-				var interfaceType = Type.GetType(GetInterfaceFullName(classType.FullName));
+				var interfaceType = GetInterfaceType(classType.FullName);
 				services.AddScoped(interfaceType, classType);
 			}
 		}
@@ -64,11 +64,11 @@ namespace TestApplication
 							.GetTypes()
 							.Where(x => x.GetInterfaces().Contains(type));
 		}
-		private string GetInterfaceFullName(string classFullName)
+		private Type GetInterfaceType(string classFullName)
 		{
 			var tempInterface = classFullName.Split(".");
 			tempInterface[tempInterface.Length - 1] = String.Concat("I", tempInterface[tempInterface.Length - 1]);
-			return String.Join(".", tempInterface);
+			return Type.GetType(String.Join(".", tempInterface));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
