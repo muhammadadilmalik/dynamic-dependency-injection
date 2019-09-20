@@ -70,7 +70,6 @@ namespace TestApplication
 			tempInterface[tempInterface.Length - 1] = String.Concat("I", tempInterface[tempInterface.Length - 1]);
 			return Type.GetType(String.Join(".", tempInterface));
 		}
-
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{

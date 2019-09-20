@@ -13,7 +13,7 @@ namespace TestApplication.Services
 		public string getMessage()
 		{
 			counter++;
-			return String.Concat("Counter Value Transient ", counter);
+			return String.Concat("Counter Value Scoped ", counter);
 		}
 	}
 }

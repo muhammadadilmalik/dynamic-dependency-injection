@@ -25,6 +25,7 @@ namespace TestApplication.Controllers
 		public IActionResult Index()
 		{
 			ViewData["message"] = _testingService.getMessage();
+			ViewData["message1"] = _testingService.getMessage();
 			ViewData["messageSingleton"] = _testingServiceSingleton.getMessage();
 			ViewData["messageScoped"] = _scopedService.getMessage();
 			ViewData["messageScoped1"] = _scopedService.getMessage();
